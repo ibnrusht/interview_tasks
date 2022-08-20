@@ -1,8 +1,8 @@
 import cv2
 import numpy
 
-im_path = 'image.png'
-temp_path = 'template.png'
+im_path = input("Path to the original image:")
+temp_path = input("path to the subimage:")
 imgc = cv2.imread(im_path)
 tempc = cv2.imread(temp_path)
 
@@ -13,7 +13,7 @@ w, h = temp.shape[::-1]
 
 res = cv2.matchTemplate(img, temp, cv2.TM_CCOEFF_NORMED)
 
-threshold = 0.5
+threshold = 0.8
 
 loc = numpy.where(res >= threshold)
 
